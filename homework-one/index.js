@@ -19,9 +19,9 @@ document.writeln( 'Round Sum: ', Math.round
 (itemsSum(applesPriceInt, meatPriceInt, oilPriceInt) / 100) * 100 );  // Round Price
 
 if (itemsSum(applesPriceInt, meatPriceInt, oilPriceInt) % 2 === 0) {  // Odd or Even
-    document.writeln(true);
+    document.writeln('Is it Even Int Sum - ', true);
 } else {
-    document.writeln(false);
+    document.writeln('Is it Odd Int Sum - ', false);
 }
 
 let clientSum = 500;
@@ -37,9 +37,9 @@ function getRandomDiscount(max) {
 
 let userPrice = prompt('Enter your price: ', 260.66);
 let userDiscount = Math.floor((userPrice * getRandomDiscount(100)) / 100);
-console.log(`Customer pays less on ${userDiscount}`);
+document.writeln(`Customer pays less on ${userDiscount}`);
 
 let cost = Math.floor((userPrice * 100) / 100) / 2;
-let wholeProfit = cost - userDiscount;
+let pureProfit = cost - userDiscount;
 
-console.log(wholeProfit);
+document.writeln('Pure profit: ', pureProfit);
