@@ -17,6 +17,7 @@ console.log('Int Apples Price: ', applesPriceInt);     //Int Price
 console.log('Int Meat Price: ', meatPriceInt);     //Int Price
 console.log('Int Oil Price: ', oilPriceInt);     //Int Price
 
+console.log( 'Int Sum: ', Math.floor(itemsSum(applesPriceInt, meatPriceInt, oilPriceInt)) );
 console.log( 'Round Sum: ', Math.round
 (itemsSum(applesPriceInt, meatPriceInt, oilPriceInt) / 100) * 100 );  // Round Price
 
@@ -55,6 +56,7 @@ document.writeln(
      <p>Int Apples Price: ${applesPriceInt}</p> 
      <p>Int Meat Price: ${meatPriceInt}</p> 
      <p>Int Oil Price: ${oilPriceInt}</p> 
+     <p>Int Sum: ${Math.floor(itemsSum(applesPriceInt, meatPriceInt, oilPriceInt))}</p>
      <p>Round Sum: ${Math.round(itemsSum(applesPriceInt, meatPriceInt, oilPriceInt) / 100) * 100}</p>
      <p>Is it Even Int Sum - ${true}</p>
      <p>Client's change: ${clientChange}</p>
