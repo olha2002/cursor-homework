@@ -21,7 +21,7 @@ console.log( 'Int Sum: ', Math.floor(itemsSum(applesPriceInt, meatPriceInt, oilP
 console.log( 'Round Sum: ', Math.round
 (itemsSum(applesPriceInt, meatPriceInt, oilPriceInt) / 100) * 100 );  // Round Price
 
-if (itemsSum(applesPriceInt, meatPriceInt, oilPriceInt) % 2 === 0) {  // Odd or Even
+if (itemsSum(applesPrice, meatPrice, oilPrice) % 2 === 0) {  // Odd or Even
     console.log('Is it Even Int Sum - ', true);
 } else {
     console.log('Is it Odd Int Sum - ', false);
@@ -40,10 +40,12 @@ function getRandomDiscount(max) {
 }
 
 let userPrice = prompt('Enter your price: ', 260.66);
-let userDiscount = Math.floor((userPrice * getRandomDiscount(100)) / 100);
+userPrice = (userPrice * 100) / 100;
+let userDiscount = (userPrice * getRandomDiscount(100) / 100);
+let userDiscountPersentage = Math.round((userDiscount * 100 / userPrice));
 console.log(`Customer pays less on ${userDiscount}`);
 
-let cost = Math.floor((userPrice * 100) / 100) / 2;
+let cost = Math.round((userPrice * 100) / 100) / 2;
 let pureProfit = cost - userDiscount;
 
 console.log('Pure profit: ', pureProfit);
@@ -58,9 +60,11 @@ document.writeln(
      <p>Int Oil Price: ${oilPriceInt}</p> 
      <p>Int Sum: ${Math.floor(itemsSum(applesPriceInt, meatPriceInt, oilPriceInt))}</p>
      <p>Round Sum: ${Math.round(itemsSum(applesPriceInt, meatPriceInt, oilPriceInt) / 100) * 100}</p>
-     <p>Is it Even Int Sum - ${true}</p>
+     <p>Is it Odd Int Sum(229) - ${false}</p>
      <p>Client's change: ${clientChange}</p>
      <p>Average Price: ${Math.floor(priceAverage * 100) / 100}</p>
+     <p>Start price: ${userPrice}</p>
+     <p>User Discount in Persentage: ${userDiscountPersentage}%</p>
      <p>Customer pays less on ${userDiscount}</p>
      <p>Pure profit: ${pureProfit}</p>`
 );
