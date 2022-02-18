@@ -39,7 +39,7 @@ function getRandomDiscount(max) {
     return Math.floor(Math.random() * max);
 }
 
-let userPrice = prompt('Enter your price: ', 260.66);
+let userPrice = +prompt('Enter your price: ', 260.66);
 userPrice = (userPrice * 100) / 100;
 let userDiscount = (userPrice * getRandomDiscount(100) / 100);
 let userDiscountPersentage = Math.round((userDiscount * 100 / userPrice));
