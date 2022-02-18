@@ -6,7 +6,7 @@ let numberSum = 0;
 do {
     numberN = +prompt('Enter n: ', 1);
     numberM = +prompt('Enter m: ', 10);
-} while (!numberN || !numberM);
+} while (!numberN || !numberM || numberN > numberM);
 
 userDecision = confirm('Do you need Even Numbers?');
 
