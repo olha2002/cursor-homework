@@ -31,8 +31,8 @@ let clientSum = 500;
 let clientChange = clientSum - (itemsSum(applesPrice, meatPrice, oilPrice));
 console.log("Client's change: ", clientChange);  // Client's Change
 
-let priceAverage = (itemsSum(applesPrice, meatPrice, oilPrice)) / 3;
-console.log('Average Price: ', Math.floor(priceAverage * 100) / 100 );  //Average Prices
+let priceAverage = ((itemsSum(applesPrice, meatPrice, oilPrice)) / 3).toFixed(2);
+console.log('Average Price: ', priceAverage);  //Average Prices
 
 //Last
 function getRandomDiscount(max) {
@@ -62,7 +62,7 @@ document.writeln(
      <p>Round Sum: ${Math.round(itemsSum(applesPriceInt, meatPriceInt, oilPriceInt) / 100) * 100}</p>
      <p>Is it Odd Int Sum(229) - ${false}</p>
      <p>Client's change: ${clientChange}</p>
-     <p>Average Price: ${Math.floor(priceAverage * 100) / 100}</p>
+     <p>Average Price: ${priceAverage}</p>
      <p>Start price: ${userPrice}</p>
      <p>User Discount in Persentage: ${userDiscountPersentage}%</p>
      <p>Customer pays less on ${userDiscount}</p>
