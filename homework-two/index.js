@@ -6,7 +6,11 @@ let numberSum = 0;
 do {
     numberN = +prompt('Enter n: ', 1);
     numberM = +prompt('Enter m: ', 10);
-} while (!numberN || !numberM || numberN >= numberM);
+} while (!numberN || 
+         !numberM || 
+         numberN >= numberM ||
+         !Number.isInteger(numberN) ||
+         !Number.isInteger(numberM));
 
 userDecision = confirm('Do you want to skip Even Numbers?');
 
