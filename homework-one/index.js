@@ -39,13 +39,18 @@ function getRandomDiscount(max) {
     return Math.floor(Math.random() * max);
 }
 
-let userPrice = +prompt('Enter your price: ', 260.66);
-userPrice = (userPrice * 100) / 100;
+let userPrice = Number(prompt('Enter your price: ', 260.66));
+if (userPrice) {
+    userPrice = userPrice.toFixed(2);
+} else {
+    userPrice = 260.66;
+}
+
 let userDiscount = (userPrice * getRandomDiscount(100) / 100);
 let userDiscountPersentage = Math.round((userDiscount * 100 / userPrice));
 console.log(`Customer pays less on ${userDiscount}`);
 
-let cost = Math.round((userPrice * 100) / 100) / 2;
+let cost = Math.floor(userPrice) / 2;
 let pureProfit = cost - userDiscount;
 
 console.log('Pure profit: ', pureProfit);
