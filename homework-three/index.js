@@ -48,7 +48,7 @@ function getRandomNumber(n, m) {
     }
 
  //Task 6. CountLetter function
- function countLetter(letter, word) {
+function countLetter(letter, word) {
     let counter = 0;
 
     for (let i = 0; i < word.length; i++) {
@@ -60,7 +60,7 @@ function getRandomNumber(n, m) {
      }
 
  //Task 7-8. ConvertCurrency function
-  function convertCurrency(value) {
+ function convertCurrency(value) {
     const dollarCurrency = 29.36;
     if (value.endsWith('$')) {
         value = value.substring(0, value.length - 1) * dollarCurrency;
@@ -91,4 +91,14 @@ function getRandomNumber(n, m) {
         return word;
     }
 
-    
+    //Task 12. Palyndrom function
+    function isPalyndrom(sentence) {
+        let palyndrom = Math.floor(sentence.length / 2);
+
+        for (let i = 0; i < palyndrom; i++) {
+            if (sentence[i] !== sentence[sentence.length - i - 1]) {
+                return false;
+            }
+            return true;
+        }
+    }
