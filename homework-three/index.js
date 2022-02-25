@@ -102,3 +102,16 @@ function countLetter(letter, word) {
             return true;
         }
     }
+    
+    document.writeln(
+        `<p>Function #1: ${getMaxDigit(385)}</p>
+         <p>Function #2: ${calcNumberPow(2, 5)}</p>
+         <p>Function #3: ${getFirstLetterUpperCase('jOhN')}</p>
+         <p>Function #4: ${calcSalaryWithNoFee(15000)}</p>
+         <p>Function #5: ${getRandomNumber(1, 10)}</p>
+         <p>Function #6: ${countLetter('a', 'abcdabcdabcd')}</p>
+         <p>Function #7-8: ${convertCurrency('250$')}</p>
+         <p>Function #9-10: ${getRandomPassword(6)}</p>
+         <p>Function #11: ${deleteLetters('a', 'blablabla')}</p>
+         <p>Function #12: ${isPalyndrom('never odd or even')}</p>
+    `);
