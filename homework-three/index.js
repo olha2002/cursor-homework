@@ -37,7 +37,7 @@ let calcSalaryWithNoFee = (salary) => salary - (salary * 19.5 / 100);
 
 //Task 5. GetRandomNumber function
 function getRandomNumber(numberN, numberM) {
-    let number = Math.ceil(Math.random() * 100);
+    let number = Math.ceil(Math.random() * 10);
     
     for (let i = numberN; i < numberM; i++) {
         if (number > numberN && number < numberM) {
