@@ -8,6 +8,7 @@ function getMaxDigit(number) {
             maxNumber = number[i];
         }
     }
+
     return Number(maxNumber);
     }
 
@@ -91,23 +92,23 @@ function countLetter(letter, word) {
     function isPalyndrom(sentence) {
         for (let i = 0; i < sentence.length; i++) {
             for (let j = sentence.length - 1; j > 0; j--) {
-                if (word[i] === word[j] {
+                if (word[i] === word[j]) {
                     return true;
-                    }
-                return false;
+                }
+            return false;
             }
         }
     }
 
     //Task 13. Delete dublicate letters function.
     function deleteDublicateLetters(sentence) {
-           for (let i = 0; i < sentence.length; i++) {
+        for (let i = 0; i < sentence.length; i++) {
             for (let j = i + 1; j < sentence.length; j++) {
-            if (sentence[i] === sentence[j]) {
+                 if (sentence[i] === sentence[j]) {
              sentence = sentence.replaceAll(sentence[i], '');   
             }
-            }
-           }
+        }
+    }
         return sentence;
     }
 
