@@ -27,25 +27,23 @@ let calcNumberPow = function(x, n) {
     };
 
 //Task 3. GetFirstLetterUpperCase
-function getFirstLetterUpperCase(name) {
-    let firstLetter = name[0].toUpperCase();
-    let otherLetters = name.slice(1, name.length);
-    name = otherLetters.toLowerCase();
-
-    let result = firstLetter + name;
-    return result;
-    }
+let getFirstLetterUpperCase = (name) => {
+ return name.slice(0, 1).toUpperCase() + name.slice(1).toLowerCase();  
+}
 
 //Task 4. CalcSalaryWithNoFee
 let calcSalaryWithNoFee = (salary) => salary - (salary * 19.5 / 100);
 
 //Task 5. GetRandomNumber function
-function getRandomNumber(n, m) {
-    n = Math.ceil(n);
-    m = Math.floor(m);
- 
-    return Math.floor(Math.random() * (m - n) + n);
+function getRandomNumber(numberN, numberM) {
+    let number = Math.ceil(Math.random() * 100);
+    
+    for (let i = numberN; i < numberM; i++) {
+        if (number > numberN && number < numberM) {
+            return number;
+        }
     }
+}
 
  //Task 6. CountLetter function
 function countLetter(letter, word) {
@@ -75,10 +73,8 @@ function countLetter(letter, word) {
 
   //Task 9-10. GetRandomPassword
   function getRandomPassword(passwordLength = 8) {
-     let password = (Math.random().toString().slice(2, passwordLength)) + 
+     return +(Math.random().toString().slice(2, passwordLength)) + 
                     (Math.random().toString().slice(2, 4));
-
-     return +password; 
     }
 
   //Task 11. DeleteLetters function
@@ -93,16 +89,28 @@ function countLetter(letter, word) {
 
     //Task 12. Palyndrom function
     function isPalyndrom(sentence) {
-        let palyndrom = Math.floor(sentence.length / 2);
-
-        for (let i = 0; i < palyndrom; i++) {
-            if (sentence[i] !== sentence[sentence.length - i - 1]) {
+        for (let i = 0; i < sentence.length; i++) {
+            for (let j = sentence.length - 1; j > 0; j--) {
+                if (word[i] === word[j] {
+                    return true;
+                    }
                 return false;
             }
-            return true;
         }
     }
-    
+
+    //Task 13. Delete dublicate letters function.
+    function deleteDublicateLetters(sentence) {
+           for (let i = 0; i < sentence.length; i++) {
+            for (let j = i + 1; j < sentence.length; j++) {
+            if (sentence[i] === sentence[j]) {
+             sentence = sentence.replaceAll(sentence[i], '');   
+            }
+            }
+           }
+        return sentence;
+    }
+
     document.writeln(
         `<p>Function #1: ${getMaxDigit(385)}</p>
          <p>Function #2: ${calcNumberPow(2, 5)}</p>
@@ -114,4 +122,5 @@ function countLetter(letter, word) {
          <p>Function #9-10: ${getRandomPassword(6)}</p>
          <p>Function #11: ${deleteLetters('a', 'blablabla')}</p>
          <p>Function #12: ${isPalyndrom('never odd or even')}</p>
+         <p>Function #13: ${deleteDublicateLetters('bob was cold outside')}</p>
     `);
