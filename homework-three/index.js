@@ -92,7 +92,7 @@ function countLetter(letter, word) {
     function isPalyndrom(sentence) {
         for (let i = 0; i < sentence.length; i++) {
             for (let j = sentence.length - 1; j > 0; j--) {
-                if (word[i] === word[j]) {
+                if (sentence[i] === sentence[j]) {
                     return true;
                 }
             return false;
