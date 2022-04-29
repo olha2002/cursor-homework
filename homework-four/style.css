@@ -1,0 +1,22 @@
+body {
+    background: tomato;
+    text-align: center;
+    font-size: 24px;
+}
+
+.descr, h1 {
+    color: khaki;
+}
+
+p {
+    color: rgb(53, 46, 33);
+}
+
+
+.down-icon {
+    transition: .3s;
+}
+
+.down-icon:hover {
+    transform: translateY(7px);
+}
