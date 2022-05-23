@@ -18,6 +18,8 @@ let calcNumberPow = function(x, n) {
 
     if (n < 0) {
         result = 'n argument should be int number';
+    } else if (n === 0) {
+        result = 1;
     } else {
         for (let i = 1; i < n; i++) {
             result *= x;
@@ -115,13 +117,13 @@ function countLetter(letter, word) {
     document.writeln(
         `<p>Function #1: ${getMaxDigit(385)}</p>
          <p>Function #2: ${calcNumberPow(2, 5)}</p>
-         <p>Function #3: ${getFirstLetterUpperCase('jOhN')}</p>
-         <p>Function #4: ${calcSalaryWithNoFee(15000)}</p>
+         <p>Function #3: ${getFirstLetterUpperCase('bOb')}</p>
+         <p>Function #4: ${calcSalaryWithNoFee(1000)}</p>
          <p>Function #5: ${getRandomNumber(1, 10)}</p>
-         <p>Function #6: ${countLetter('a', 'abcdabcdabcd')}</p>
-         <p>Function #7-8: ${convertCurrency('250$')}</p>
+         <p>Function #6: ${countLetter('a', 'aabcdabcdabcda')}</p>
+         <p>Function #7-8: ${convertCurrency('5000UAH')}</p>
          <p>Function #9-10: ${getRandomPassword(6)}</p>
-         <p>Function #11: ${deleteLetters('a', 'blablabla')}</p>
+         <p>Function #11: ${deleteLetters('a', 'abablablabla')}</p>
          <p>Function #12: ${isPalyndrom('never odd or even')}</p>
          <p>Function #13: ${deleteDublicateLetters('bob was cold outside')}</p>
     `);
