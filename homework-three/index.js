@@ -30,23 +30,15 @@ let calcNumberPow = function(x, n) {
     };
 
 //Task 3. GetFirstLetterUpperCase
-let getFirstLetterUpperCase = (name) => {
+const getFirstLetterUpperCase = (name) => {
  return name.slice(0, 1).toUpperCase() + name.slice(1).toLowerCase();  
 }
 
 //Task 4. CalcSalaryWithNoFee
-let calcSalaryWithNoFee = (salary) => salary - (salary * 19.5 / 100);
+const calcSalaryWithNoFee = (salary) => salary - (salary * 19.5 / 100);
 
 //Task 5. GetRandomNumber function
-function getRandomNumber(numberN, numberM) {
-    let number = Math.ceil(Math.random() * 10);
-    
-    for (let i = numberN; i < numberM; i++) {
-        if (number > numberN && number < numberM) {
-            return number;
-        }
-    }
-}
+const getRandomNumber = (numberN, numberM) => Math.ceil(Math.random() * (numberM - numberN) + numberN);
 
  //Task 6. CountLetter function
 function countLetter(letter, word) {
@@ -69,15 +61,19 @@ function countLetter(letter, word) {
          value = value.substring(0, value.length - 3) / dollarCurrency;
     } else {
          let currencyEror = new Error('The currency should be $ or UAH!');
-         throw currencyEror; 
+         alert(currencyEror); 
      }
     return value;
     }
 
-  //Task 9-10. GetRandomPassword
+  //Task 9-10. GetRandomPassword   при 1 і 2 
   function getRandomPassword(passwordLength = 8) {
-     return +(Math.random().toString().slice(2, passwordLength)) + 
-                    (Math.random().toString().slice(2, 4));
+      if (passwordLength < 3) {
+        return 'You must enter 3 numbers at least!';
+      } else {
+          return +(Math.random().toString().slice(2, passwordLength)) + 
+                  (Math.random().toString().slice(2, 4));
+      }
     }
 
   //Task 11. DeleteLetters function
@@ -119,11 +115,11 @@ function countLetter(letter, word) {
          <p>Function #2: ${calcNumberPow(2, 5)}</p>
          <p>Function #3: ${getFirstLetterUpperCase('bOb')}</p>
          <p>Function #4: ${calcSalaryWithNoFee(1000)}</p>
-         <p>Function #5: ${getRandomNumber(1, 10)}</p>
-         <p>Function #6: ${countLetter('a', 'aabcdabcdabcda')}</p>
-         <p>Function #7-8: ${convertCurrency('5000UAH')}</p>
-         <p>Function #9-10: ${getRandomPassword(6)}</p>
-         <p>Function #11: ${deleteLetters('a', 'abablablabla')}</p>
+         <p>Function #5: ${getRandomNumber(2, 30)}</p>
+         <p>Function #6: ${countLetter('a', 'blablabla')}</p>
+         <p>Function #7-8: ${convertCurrency('1000$')}</p>
+         <p>Function #9-10: ${getRandomPassword(3)}</p>
+         <p>Function #11: ${deleteLetters('a', 'blablabla')}</p>
          <p>Function #12: ${isPalyndrom('never odd or even')}</p>
          <p>Function #13: ${deleteDublicateLetters('bob was cold outside')}</p>
     `);
