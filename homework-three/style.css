@@ -1,0 +1,29 @@
+html {
+    font-size: 62.5%;
+}
+
+body {
+    background-color: rgb(255, 255, 255);
+    font-size: 2rem;
+    border: 2px red;
+}
+
+h1 {
+    color: rgb(13, 50, 87);
+    text-align: center;
+}
+
+p {
+    border: 2px double red;
+    border-left: 0;
+    border-right: 0;
+    border-top: 0;
+    color: rgb(13, 50, 87);
+}
+
+.subheader {
+    color: rgb(13, 50, 87);
+    text-align: center;
+    border: 0;
+    font-size: 2.2rem;
+}

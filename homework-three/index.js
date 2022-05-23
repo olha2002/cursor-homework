@@ -56,9 +56,9 @@ function countLetter(letter, word) {
  function convertCurrency(value) {
     const dollarCurrency = 29.36;
     if (value.endsWith('$')) {
-        value = value.substring(0, value.length - 1) * dollarCurrency;
+        value = Math.round(value.substring(0, value.length - 1) * dollarCurrency) + 'UAH';
     } else if (value.endsWith('UAH')) {
-         value = value.substring(0, value.length - 3) / dollarCurrency;
+         value = Math.round(value.substring(0, value.length - 3) / dollarCurrency) + '$';
     } else {
          let currencyEror = new Error('The currency should be $ or UAH!');
          alert(currencyEror); 
@@ -111,15 +111,26 @@ function countLetter(letter, word) {
     }
 
     document.writeln(
-        `<p>Function #1: ${getMaxDigit(385)}</p>
-         <p>Function #2: ${calcNumberPow(2, 5)}</p>
-         <p>Function #3: ${getFirstLetterUpperCase('bOb')}</p>
-         <p>Function #4: ${calcSalaryWithNoFee(1000)}</p>
-         <p>Function #5: ${getRandomNumber(2, 30)}</p>
-         <p>Function #6: ${countLetter('a', 'blablabla')}</p>
-         <p>Function #7-8: ${convertCurrency('1000$')}</p>
-         <p>Function #9-10: ${getRandomPassword(3)}</p>
-         <p>Function #11: ${deleteLetters('a', 'blablabla')}</p>
-         <p>Function #12: ${isPalyndrom('never odd or even')}</p>
-         <p>Function #13: ${deleteDublicateLetters('bob was cold outside')}</p>
+        `<p>Result function #1:
+         getMaxDigit(385) - ${getMaxDigit(385)}</p>
+         <p>Result function #2:
+         calcNumberPow(2, 5) - ${calcNumberPow(2, 5)}</p>
+         <p>Result function #3:
+         getFirstLetterUpperCase('bOb') - ${getFirstLetterUpperCase('bOb')}</p>
+         <p>Result function #4:
+         calcSalaryWithNoFee(1000) - ${calcSalaryWithNoFee(1000)}</p>
+         <p>Result function #5:
+         getRandomNumber(2, 30) - ${getRandomNumber(2, 30)}</p>
+         <p>Result function #6:
+         countLetter('a', 'blablabla') - ${countLetter('a', 'blablabla')}</p>
+         <p>Result function #7-8:
+         convertCurrency('3560UAH') - ${convertCurrency('3560UAH')}</p>
+         <p>Result function #9-10: 
+         getRandomPassword(5) - ${getRandomPassword(5)}</p>
+         <p>Result function #11:
+         deleteLetters('a', 'blablabla') - ${deleteLetters('a', 'blablabla')}</p>
+         <p>Result function #12:
+         isPalyndrom('never odd or even') - ${isPalyndrom('never odd or even')}</p>
+         <p>Result function #13: 
+         deleteDublicateLetters('bob was cold outside') - ${deleteDublicateLetters('bob was cold outside')}</p>
     `);
