@@ -16,10 +16,13 @@ function getMaxDigit(number) {
 let calcNumberPow = function(x, n) {
     let result = x;
 
-    if (n < 0) {
-        result = 'n argument should be int number';
-    } else if (n === 0) {
+    if (n === 0) {
         result = 1;
+    } else if (n < 0) {
+        for (let i = 1; i < Math.abs(n); i++) {
+            result *= x;
+        }
+            result = 1 / result;
     } else {
         for (let i = 1; i < n; i++) {
             result *= x;
@@ -27,7 +30,7 @@ let calcNumberPow = function(x, n) {
     }
     
     return result;
-    };
+};
 
 //Task 3. GetFirstLetterUpperCase
 const getFirstLetterUpperCase = (name) => {
@@ -55,15 +58,15 @@ function countLetter(letter, word) {
  //Task 7-8. ConvertCurrency function
  function convertCurrency(value) {
     const dollarCurrency = 29.36;
-    if (value.endsWith('$')) {
-        value = Math.round(value.substring(0, value.length - 1) * dollarCurrency) + 'UAH';
-    } else if (value.endsWith('UAH')) {
+   if ((value.endsWith('UAH') && +value.substring(0, value.length - 3))) {
          value = Math.round(value.substring(0, value.length - 3) / dollarCurrency) + '$';
+    } else if ((value.endsWith('$') && +value.substring(0, value.length - 1))) {
+        value = Math.round(value.substring(0, value.length - 1) * dollarCurrency) + 'UAH';
     } else {
-         let currencyEror = new Error('The currency should be $ or UAH!');
-         alert(currencyEror); 
+         value = 0;
      }
     return value;
+
     }
 
   //Task 9-10. GetRandomPassword   при 1 і 2 
@@ -114,7 +117,7 @@ function countLetter(letter, word) {
         `<p>Result function #1:
          getMaxDigit(385) - ${getMaxDigit(385)}</p>
          <p>Result function #2:
-         calcNumberPow(2, 5) - ${calcNumberPow(2, 5)}</p>
+         calcNumberPow(2, 3) - ${calcNumberPow(2, 3)}</p>
          <p>Result function #3:
          getFirstLetterUpperCase('bOb') - ${getFirstLetterUpperCase('bOb')}</p>
          <p>Result function #4:
