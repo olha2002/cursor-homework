@@ -71,12 +71,12 @@ function countLetter(letter, word) {
 
   //Task 9-10. GetRandomPassword   при 1 і 2 
   function getRandomPassword(passwordLength = 8) {
-      if (passwordLength < 3) {
-        return 'You must enter 3 numbers at least!';
-      } else {
-          return +(Math.random().toString().slice(2, passwordLength)) + 
-                  (Math.random().toString().slice(2, 4));
+      let randomNum = '';
+      for (let i = 0; i < passwordLength; i++) {
+          randomNum += Math.floor(Math.random() * 10);
       }
+
+      return randomNum;
     }
 
   //Task 11. DeleteLetters function
@@ -129,7 +129,7 @@ function countLetter(letter, word) {
          <p>Result function #7-8:
          convertCurrency('3560UAH') - ${convertCurrency('3560UAH')}</p>
          <p>Result function #9-10: 
-         getRandomPassword(5) - ${getRandomPassword(5)}</p>
+         getRandomPassword(4) - ${getRandomPassword(4)}</p>
          <p>Result function #11:
          deleteLetters('a', 'blablabla') - ${deleteLetters('a', 'blablabla')}</p>
          <p>Result function #12:
