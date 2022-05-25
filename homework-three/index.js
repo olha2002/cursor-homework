@@ -58,15 +58,16 @@ function countLetter(letter, word) {
  //Task 7-8. ConvertCurrency function
  function convertCurrency(value) {
     const dollarCurrency = 29.36;
-   if ((value.endsWith('UAH') && +value.substring(0, value.length - 3))) {
+   if ((value.endsWith('UAH') && Number(value.substring(0, value.length - 3)))) {
          value = Math.round(value.substring(0, value.length - 3) / dollarCurrency) + '$';
-    } else if ((value.endsWith('$') && +value.substring(0, value.length - 1))) {
+    } else if ((value.endsWith('uah') && Number(value.substring(0, value.length - 3)))) {
+        value = Math.round(value.substring(0, value.length - 3) / dollarCurrency) + '$';
+    } else if ((value.endsWith('$') && Number(value.substring(0, value.length - 1)))) {
         value = Math.round(value.substring(0, value.length - 1) * dollarCurrency) + 'UAH';
     } else {
-         value = 0;
+        value = 'Change the currency to $ or UAH(uah)';
      }
     return value;
-
     }
 
   //Task 9-10. GetRandomPassword   при 1 і 2 
@@ -91,15 +92,14 @@ function countLetter(letter, word) {
 
     //Task 12. Palyndrom function
     function isPalyndrom(sentence) {
-        for (let i = 0; i < sentence.length; i++) {
-            for (let j = sentence.length - 1; j > 0; j--) {
-                if (sentence[i] === sentence[j]) {
-                    return true;
-                }
-            return false;
-            }
+        let str = deleteLetters(' ', sentence).toLowerCase(); 
+        for (let i = 0; i < str.length; i++) {
+             if (str[i] !== str[str.length - i - 1]) {
+                return false;
+            } 
+         }
+         return true;
         }
-    }
 
     //Task 13. Delete dublicate letters function.
     function deleteDublicateLetters(sentence) {
