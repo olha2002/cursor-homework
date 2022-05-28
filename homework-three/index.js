@@ -1,3 +1,5 @@
+const DOLLAR_CURRENCY = 29.36;
+
 //Task 1. GetMaxDigit function
 function getMaxDigit(number) {
     number = number.toString();
@@ -13,10 +15,10 @@ function getMaxDigit(number) {
     }
 
 //Task 2. Pow function
-let calcNumberPow = function(x, n) {
+const calcNumberPow = function(x, n) {
     let result = x;
 
-    if (n === 0) {
+    if (!n) {
         result = 1;
     } else if (n < 0) {
         for (let i = 1; i < Math.abs(n); i++) {
@@ -48,7 +50,8 @@ function countLetter(letter, word) {
     let counter = 0;
 
     for (let i = 0; i < word.length; i++) {
-         if (word[i] === letter) {
+        const result = word[i].toLowerCase();
+         if (result === letter) {
              counter++;
             }
         }
@@ -57,14 +60,25 @@ function countLetter(letter, word) {
 
  //Task 7-8. ConvertCurrency function
  function convertCurrency(value) {
-    const dollarCurrency = 29.36;
-   if ((value.endsWith('UAH') && Number(value.substring(0, value.length - 3)))) {
-         value = Math.round(value.substring(0, value.length - 3) / dollarCurrency) + '$';
-    } else if ((value.endsWith('uah') && Number(value.substring(0, value.length - 3)))) {
-        value = Math.round(value.substring(0, value.length - 3) / dollarCurrency) + '$';
-    } else if ((value.endsWith('$') && Number(value.substring(0, value.length - 1)))) {
-        value = Math.round(value.substring(0, value.length - 1) * dollarCurrency) + 'UAH';
-    } else {
+   if ((value.endsWith('UAH') )
+        && Number(value.substring(0, value.length - 3))
+        || Number(value.substring(0, value.length - 3)) === 0) {
+         value = Math.round(value.substring(0, value.length - 3) / DOLLAR_CURRENCY) + '$';
+    } else if ((value.endsWith('uah') )
+        && Number(value.substring(0, value.length - 3))
+        || Number(value.substring(0, value.length - 3)) === 0 ) {
+        value = Math.round(value.substring(0, value.length - 3) / DOLLAR_CURRENCY) + '$';
+    } else if ((value.endsWith('$') )
+        && Number(value.substring(0, value.length - 1))
+        || Number(value.substring(0, value.length - 1)) === 0) {
+        value = Math.round(value.substring(0, value.length - 1) * DOLLAR_CURRENCY) + 'UAH';
+    } else if ((value.endsWith('UAH')) && Number(value.substring(0, value.length - 3)) === 0
+            || (value.endsWith('uah')) && Number(value.substring(0, value.length - 3)) === 0
+            || (value.endsWith('$') )  && Number(value.substring(0, value.length - 1)) === 0) {
+        value = 0;
+    }
+    
+    else {
         value = 'Change the currency to $ or UAH(uah)';
      }
     return value;
@@ -85,7 +99,7 @@ function countLetter(letter, word) {
      for (let i = 0; i < word.length; i++) {
         if (word[i] === letter) {
             word = word.replace(letter, '');
-        } else continue;
+        } 
      }
         return word;
     }
@@ -103,14 +117,18 @@ function countLetter(letter, word) {
 
     //Task 13. Delete dublicate letters function.
     function deleteDublicateLetters(sentence) {
+        if ((sentence === '') || (Number(sentence))) {
+            return 'Enter sentence please!';
+        }
+
+        let result = '';
         for (let i = 0; i < sentence.length; i++) {
-            for (let j = i + 1; j < sentence.length; j++) {
-                 if (sentence[i] === sentence[j]) {
-             sentence = sentence.replaceAll(sentence[i], '');   
+        let element = sentence[i].toLowerCase();
+            if (countLetter(element, sentence) === 1) {
+                result += element;
             }
         }
-    }
-        return sentence;
+        return result;
     }
 
     document.writeln(
