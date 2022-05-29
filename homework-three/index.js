@@ -66,9 +66,9 @@ function countLetter(letter, word) {
 
    if ((value.endsWith('UAH') 
     || value.endsWith('uah')) && !isNaN(parseInt(value))) {
-         value = (Math.round(signUah) / DOLLAR_CURRENCY) + '$';
+         value = (Math.round(signUah / DOLLAR_CURRENCY)) + '$';
     } else if (value.endsWith('$') && !isNaN(parseInt(value)) ) {
-        value = (Math.round(sign$) * DOLLAR_CURRENCY) + 'UAH';
+        value = (Math.round(sign$ * DOLLAR_CURRENCY)) + 'UAH';
     } else { 
         value = 'Enter number please or add the $ currency or UAH(uah)';
     } 
