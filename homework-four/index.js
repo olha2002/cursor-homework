@@ -37,7 +37,7 @@ const studentsWithMarks = studentsMarks(studentsClone, marks);
 
 //func that calcs students with their marks for the project
 function studentsEvaluatedProjects(arr1) {
-  return arr1.map((studentsWithMarks) => [...studentsWithMarks, Math.ceil(Math.random() * 5)]);
+  return arr1.map((pairsAndTheirTasks) => [...pairsAndTheirTasks, Math.ceil(Math.random() * 5)]);
 }
 const studentsEvaluatedProjectsArr = studentsEvaluatedProjects(pairsWithTasks);
 
