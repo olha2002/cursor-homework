@@ -48,6 +48,7 @@ const getRandomNumber = (numberN, numberM) => Math.ceil(Math.random() * (numberM
  //Task 6. CountLetter function
 function countLetter(letter, word) {
     let counter = 0;
+    letter = letter.toLowerCase();
 
     for (let i = 0; i < word.length; i++) {
         const result = word[i].toLowerCase();
@@ -60,27 +61,17 @@ function countLetter(letter, word) {
 
  //Task 7-8. ConvertCurrency function
  function convertCurrency(value) {
-   if ((value.endsWith('UAH') )
-        && Number(value.substring(0, value.length - 3))
-        || Number(value.substring(0, value.length - 3)) === 0) {
-         value = Math.round(value.substring(0, value.length - 3) / DOLLAR_CURRENCY) + '$';
-    } else if ((value.endsWith('uah') )
-        && Number(value.substring(0, value.length - 3))
-        || Number(value.substring(0, value.length - 3)) === 0 ) {
-        value = Math.round(value.substring(0, value.length - 3) / DOLLAR_CURRENCY) + '$';
-    } else if ((value.endsWith('$') )
-        && Number(value.substring(0, value.length - 1))
-        || Number(value.substring(0, value.length - 1)) === 0) {
-        value = Math.round(value.substring(0, value.length - 1) * DOLLAR_CURRENCY) + 'UAH';
-    } else if ((value.endsWith('UAH')) && Number(value.substring(0, value.length - 3)) === 0
-            || (value.endsWith('uah')) && Number(value.substring(0, value.length - 3)) === 0
-            || (value.endsWith('$') )  && Number(value.substring(0, value.length - 1)) === 0) {
-        value = 0;
-    }
-    
-    else {
-        value = 'Change the currency to $ or UAH(uah)';
-     }
+    const signUah = value.substring(0, value.length - 3);
+    const sign$ = value.substring(0, value.length - 1);
+
+   if ((value.endsWith('UAH') 
+    || value.endsWith('uah')) && !isNaN(parseInt(value))) {
+         value = (Math.round(signUah) / DOLLAR_CURRENCY) + '$';
+    } else if (value.endsWith('$') && !isNaN(parseInt(value)) ) {
+        value = (Math.round(sign$) * DOLLAR_CURRENCY) + 'UAH';
+    } else { 
+        value = 'Enter number please or add the $ currency or UAH(uah)';
+    } 
     return value;
     }
 
@@ -143,7 +134,7 @@ function countLetter(letter, word) {
          <p>Result function #5:
          getRandomNumber(2, 30) - ${getRandomNumber(2, 30)}</p>
          <p>Result function #6:
-         countLetter('a', 'blablabla') - ${countLetter('a', 'blablabla')}</p>
+         countLetter('a', 'AAblablabla') - ${countLetter('A', 'AAblablabla')}</p>
          <p>Result function #7-8:
          convertCurrency('3560UAH') - ${convertCurrency('3560UAH')}</p>
          <p>Result function #9-10: 
