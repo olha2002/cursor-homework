@@ -49,6 +49,14 @@ const getDividedByFive = (...numbers) => {
 const dividedByFiveArray = getDividedByFive(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2);
 console.log('Divided by 5 numbers: ', dividedByFiveArray );
 
+
+/*function replaceBadWords(string) {
+    return string.split(' ').replaceAll(BAD_WORDS, '*').join(' ');
+}
+
+console.log( replaceBadWords("Are you fucking kidding?") );
+
+*/
 // Function 9. Divides word by three parts
 function divideByThree(word) {
     return word.toLowerCase().replaceAll(' ', '').match(/.{1,3}/g);
