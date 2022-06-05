@@ -32,20 +32,20 @@ console.log(getModa(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2));
 // Function 3. Gets the average value
 function getAverage(...numbers) {
    const averageArr = Array.from(numbers);
-   const filteredAverageArr = averageArr.filter(value => typeof value === 'number' && parseInt(value));
+   const filteredAverageArr = averageArr.filter(value => Number(value) && parseInt(value) === value);
    const sumOfArrayElements = filteredAverageArr.reduce((previousValue, currentValue) =>
     previousValue + currentValue
     );
 
    return Number(sumOfArrayElements / averageArr.length);
 } 
-const averageArray = getAverage(1, 2, 3.5,'j', 3, 4);
+const averageArray = getAverage(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2);
 console.log('My getAverage num: ', averageArray);
 
 // Function 4. Gets numbers median
 function getMedian(...numbers) {
     const medianArr = Array.from(numbers);
-    const filteredMedianArr = medianArr.filter(value => typeof value === 'number' && parseInt(value));
+    const filteredMedianArr = medianArr.filter(value => Number(value) && parseInt(value) === value);
     const filteredNumbers = filteredMedianArr.sort((a, b) => a - b );
 
     for (let index = 0; index < filteredNumbers.length; index++) {
@@ -60,7 +60,8 @@ function getMedian(...numbers) {
     }
 }
 
-console.log( getMedian(1, 2, 3, 4, 5, 6, 8, 9) );
+const median = getMedian(1, 2, 3, 4, 5, 6, 8, 9);
+console.log( median );
 // Function 5. Filters even numbers
 const filterEvenNumbers = (...numbers) => {
     return Array.from(numbers).filter(value => value % 2 !== 0);
@@ -107,19 +108,20 @@ function replaceBadWords(string, addYoursBadWord) {
     return result.join(' ');
 }
 
-console.log(replaceBadWords("Are you fucking kidding?"));
+const replacedBadWords = replaceBadWords("Are you fucking kidding?");
+console.log(replacedBadWords);
 
 // Function 9. Divides word by three parts
 function divideByThree(word) {
     return word.toLowerCase().replaceAll(' ', '').match(/.{1,3}/g);
 }
-const dividedByThreeArray = divideByThree('Commander ');
+const dividedByThreeArray = divideByThree('Commander');
 console.log('Divided by 3 Array: ', dividedByThreeArray);
 
 // Function 10. 
-function generateCombinations(word) {
+/*function generateCombinations(word) {
 
 
     const result = words.filter(word => word.length > 10);
     return result;
-}
+}*/
