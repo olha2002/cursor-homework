@@ -61,7 +61,7 @@ function getMedian(...numbers) {
 }
 
 const median = getMedian(1, 2, 3, 4, 5, 6, 8, 9);
-console.log( median );
+console.log('My Median: ', median );
 // Function 5. Filters even numbers
 const filterEvenNumbers = (...numbers) => {
     return Array.from(numbers).filter(value => value % 2 !== 0);
@@ -109,7 +109,7 @@ function replaceBadWords(string, addYoursBadWord) {
 }
 
 const replacedBadWords = replaceBadWords("Are you fucking kidding?");
-console.log(replacedBadWords);
+console.log('Replaced Bad words: ', replacedBadWords);
 
 // Function 9. Divides word by three parts
 function divideByThree(word) {
