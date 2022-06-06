@@ -18,25 +18,38 @@ const getRandomArray = (length, min, max) => {
 const randomArray = getRandomArray(8, 55, 100);
 console.log( `My Random Array: ${randomArray}` );
 
-// Function 2.
-/*const getModa = (...numbers) => {
+// Function 2. Gets the array moda.
+const getModa = (...numbers) => {
     const modaArr = Array.from(numbers);
     const filteredModaArray = modaArr.filter(value => Number(value) && parseInt(value) === value);
-    console.log(filteredModaArray);
-
-    const occurences = {};
+    const occurencesObj = {};
     filteredModaArray.forEach(element => {
-        occurences[element] = occurences[element] + 1 || 1;
+        if (!occurencesObj[element]) occurencesObj[element] = 0;
+        occurencesObj[element]++;
     });
 
-    const elementOccurance = Object.values(occurences);
-    const max = Math.max(...elementOccurance);
+    let resultArr = [];
+    let maxValue = 0;
 
-    return max;
+    for (let key in occurencesObj) {
+        if (occurencesObj[key] > maxValue) {
+            resultArr = [key];
+            maxValue = occurencesObj[key]; 
+        } else if (occurencesObj[key] === maxValue) {
+            resultArr.push(key);
+        }
+    }
+
+    if (Object.keys(occurencesObj).length === resultArr.length) {
+        resultArr = [];
+    }
+
+    return resultArr.join(',');
 }
 
-console.log(getModa(6, 2, 6, 6, 8, 9, 9, 9, 0));
-*/
+const modaValues = getModa(1, 2, 3, 3, 4, 4);
+console.log( `Moda values: ${modaValues}` );
+
 // Function 3. Gets the average value
 function getAverage(...numbers) {
    const averageArr = Array.from(numbers);
@@ -45,7 +58,7 @@ function getAverage(...numbers) {
     previousValue + currentValue
     );
 
-   return Number(sumOfArrayElements / averageArr.length);
+   return Number(sumOfArrayElements / filteredAverageArr.length);
 } 
 const averageArray = getAverage(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2);
 console.log( `My getAverage num: ${averageArray}` );
@@ -68,7 +81,7 @@ function getMedian(...numbers) {
     }
 }
 
-const median = getMedian(1, 2, 3, 4, 5, 6, 8, 9);
+const median = getMedian(1, 2, 3, 4, 5, 6, 8, 8.6, 'j');
 console.log( `My Median: ${median}` );
 // Function 5. Filters even numbers
 const filterEvenNumbers = (...numbers) => {
@@ -95,7 +108,7 @@ console.log( `Divided by 5 numbers: ${dividedByFiveArray}` );
 // Function 8. Replaces bad word by ****
 function replaceBadWords(string, addYoursBadWord) {
     if (string === '') {
-        return 'Enter your phrase!';
+        return 'Please enter your phrase!';
     }
 
     if (addYoursBadWord !== '') {
@@ -121,18 +134,38 @@ console.log( `Replaced Bad words: ${replacedBadWords}` );
 
 // Function 9. Divides word by three parts
 function divideByThree(word) {
-    if (word !== '') {
+    if (word !== '' && typeof word === 'string') {
         return String(word).toLowerCase().replaceAll(' ', '').match(/.{1,3}/g);
     } else {
-        return 'Enter your word!';
+        return 'Please enter your word!';
     }
 }
-const dividedByThreeArray = divideByThree('live');
+const dividedByThreeArray = divideByThree('Commander');
 console.log( `Divided by 3 Array: ${dividedByThreeArray}` );
 
-// Function 10. 
-/*function generateCombinations(word) {
-    
-}
+// Function 10. Generates word combinations
+const generateCombinations = (word) => {
+   let wordArray = Array.from(word);
+   const combinationsArr = [];
 
-console.log( generateCombinations("man") ); */
+    if (word.length < 2 || word.length > 10) {
+        return 'Please enter your word with length between 2 and 10!';
+    } else if (!word || typeof word !== 'string') {
+        return 'Please enter string!';
+    } 
+
+     for (let index = 0; index < wordArray.length; index++) {
+        if (wordArray.length === 2) {
+            combinationsArr.push([wordArray[index], wordArray[(index + 1) % 2]].join(''));
+      } else {
+        const firstLetter = wordArray.splice(0, 1);
+        const resultArray = generateCombinations(wordArray.join(''));
+        resultArray.forEach(char => combinationsArr.push(char + firstLetter));
+        wordArray = [...wordArray, ...firstLetter];
+    }
+}
+    return combinationsArr;
+};
+
+const combinations = generateCombinations('man');
+console.log(`Combinations of word: ${combinations}` );
