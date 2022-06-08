@@ -10,18 +10,17 @@ const getRandomArray = (length, min, max) => {
 
     for (let index = 0; index < length; index++) {
         randomArr.unshift( 
-        Math.floor( Math.random() * (max - min) + min ) );
+        Math.floor( Math.random() * (max - min + 1) + min ) );
     }
 
     return randomArr;
 }
-const randomArray = getRandomArray(8, 55, 100);
+const randomArray = getRandomArray(8, 5, 10);
 console.log( `My Random Array: ${randomArray}` );
 
 // Function 2. Gets the array moda.
 const getModa = (...numbers) => {
-    const modaArr = Array.from(numbers);
-    const filteredModaArray = modaArr.filter(value => Number(value) && parseInt(value) === value);
+    const filteredModaArray = numbers.filter(value => Number(value) && parseInt(value) === value);
     const occurencesObj = {};
     filteredModaArray.forEach(element => {
         if (!occurencesObj[element]) occurencesObj[element] = 0;
@@ -47,13 +46,12 @@ const getModa = (...numbers) => {
     return resultArr.join(',');
 }
 
-const modaValues = getModa(1, 2, 3, 3, 4, 4);
+const modaValues = getModa(3, 3, 2, 2, 5);
 console.log( `Moda values: ${modaValues}` );
 
 // Function 3. Gets the average value
 function getAverage(...numbers) {
-   const averageArr = Array.from(numbers);
-   const filteredAverageArr = averageArr.filter(value => Number(value) && parseInt(value) === value);
+   const filteredAverageArr = numbers.filter(value => Number(value) && parseInt(value) === value);
    const sumOfArrayElements = filteredAverageArr.reduce((previousValue, currentValue) =>
     previousValue + currentValue
     );
@@ -65,8 +63,7 @@ console.log( `My getAverage num: ${averageArray}` );
 
 // Function 4. Gets numbers median
 function getMedian(...numbers) {
-    const medianArr = Array.from(numbers);
-    const filteredMedianArr = medianArr.filter(value => Number(value) && parseInt(value) === value);
+    const filteredMedianArr = numbers.filter(value => Number(value) && parseInt(value) === value);
     const filteredNumbers = filteredMedianArr.sort((a, b) => a - b );
 
     for (let index = 0; index < filteredNumbers.length; index++) {
@@ -85,14 +82,14 @@ const median = getMedian(1, 2, 3, 4, 5, 6, 8, 8.6, 'j');
 console.log( `My Median: ${median}` );
 // Function 5. Filters even numbers
 const filterEvenNumbers = (...numbers) => {
-    return Array.from(numbers).filter(value => Number(value) && value % 2 !== 0);
+    return numbers.filter(value => Number(value) && value % 2 !== 0);
 }
 const filterEvenNumbersArray = filterEvenNumbers(1, 2, 3, 'g', 4, 5, 6, 8, 8, 9);
 console.log( `Filtered with EvenNumbers Array: ${filterEvenNumbersArray}` );
 
 // Function 6. Counts positive numbers
 const countPositiveNumbers = (...numbers) => {
-   const positiveNumbersArray = Array.from(numbers).filter(value => Number(value) && value > 0);
+   const positiveNumbersArray = numbers.filter(value => Number(value) && value > 0);
    return positiveNumbersArray.length;
 }
 const countPositiveNumbersArr = countPositiveNumbers(1, -2,  3, -4, -5,  6, -1);
@@ -100,7 +97,7 @@ console.log( `Positives numbers: ${countPositiveNumbersArr}` );
 
 // Function 7. Gets divided by 5 numbers
 const getDividedByFive = (...numbers) => {
-    return Array.from(numbers).filter(value => Number(value) && value % 5 === 0);
+    return numbers.filter(value => Number(value) && value % 5 === 0);
 }
 const dividedByFiveArray = getDividedByFive(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2);
 console.log( `Divided by 5 numbers: ${dividedByFiveArray}` );
@@ -115,22 +112,20 @@ function replaceBadWords(string, addYoursBadWord) {
         BAD_WORDS.push(addYoursBadWord);
     }
 
-    const splitedWords = string.split(' ');
-
+    const splitedWords = string.toLowerCase().split(' ');
     const result = splitedWords.map(phrase => {
         for (let badWord of BAD_WORDS) {
             if (phrase.includes(badWord)) {
-                return phrase.split(badWord).join('****');
+                return phrase.replaceAll(badWord, new Array(badWord.length).fill('*').join(''));
             }
         }
-        return phrase;
     });
     
     return result.join(' ');
 }
 
-const replacedBadWords = replaceBadWords("Are you fucking kidding?");
-console.log( `Replaced Bad words: ${replacedBadWords}` );
+const replacedBadWords = replaceBadWords("Shit Fuck fuck fucking bitch", 'bitch');
+console.log( `Replaced Bad words: `,replacedBadWords );
 
 // Function 9. Divides word by three parts
 function divideByThree(word) {
@@ -143,7 +138,7 @@ function divideByThree(word) {
 const dividedByThreeArray = divideByThree('Commander');
 console.log( `Divided by 3 Array: ${dividedByThreeArray}` );
 
-// Function 10. Generates word combinations
+// Function 10. 
 const generateCombinations = (word) => {
    let wordArray = Array.from(word);
    const combinationsArr = [];
