@@ -104,8 +104,8 @@ console.log( `Divided by 5 numbers: ${dividedByFiveArray}` );
 
 // Function 8. Replaces bad word by ****
 function replaceBadWords(string, addYoursBadWord) {
-    if (string === '') {
-        return 'Please enter your phrase!';
+    if (string === '' || !string || typeof string === 'number') {
+        return 'Please enter the phrase!';
     }
 
     /*if (addYoursBadWord !== '') {
@@ -133,7 +133,7 @@ function replaceBadWords(string, addYoursBadWord) {
 
 }
 
-const replacedBadWords = replaceBadWords("ShitFuckFuckfuckfuckingBitch");
+const replacedBadWords = replaceBadWords('ShitfuckFuckFuckingbitch');
 console.log( `Replaced Bad words: `,replacedBadWords );
 
 // Function 9. Divides word by three parts
