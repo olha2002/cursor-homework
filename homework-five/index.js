@@ -108,7 +108,7 @@ function replaceBadWords(string, addYoursBadWord) {
         return 'Please enter your phrase!';
     }
 
-    if (addYoursBadWord !== '') {
+    /*if (addYoursBadWord !== '') {
         BAD_WORDS.push(addYoursBadWord);
     }
 
@@ -122,9 +122,18 @@ function replaceBadWords(string, addYoursBadWord) {
     });
     
     return result.join(' ');
+    */
+
+    const badWords = /(shit)|(Fuck)|(bitch)/gi; 
+    const replacedString = string.replaceAll(badWords, function(argument) {
+        return argument.replaceAll(/./g, '*');
+    });
+
+    return replacedString;
+
 }
 
-const replacedBadWords = replaceBadWords("Shit Fuck fuck fucking bitch", 'bitch');
+const replacedBadWords = replaceBadWords("ShitFuckFuckfuckfuckingBitch");
 console.log( `Replaced Bad words: `,replacedBadWords );
 
 // Function 9. Divides word by three parts
