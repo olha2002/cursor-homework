@@ -1,0 +1,30 @@
+html {
+    font-size: 62.5%; 
+}
+
+body {
+   background-color: rgb(197, 230, 213);
+   font-size: 2rem; 
+   text-align: center;
+}
+
+p {
+    color: rgb(143, 72, 49);
+}
+
+.main {
+    color: coral;
+}
+
+.icon {
+    width: 100px;
+    transform: rotate(90deg);
+}
+
+.animation {
+    color: rgb(32, 155, 52);
+}
+
+.animation:hover {
+    color: coral;
+}
