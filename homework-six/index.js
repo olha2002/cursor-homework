@@ -23,3 +23,31 @@ const students = [{
         cosmology: [5, 5, 5, 5]
     }
 }];
+
+// Function #1 that gets the student's subjects
+function getSubjects(studentsArray) {
+    const result = Object.keys(studentsArray.subjects);
+    return result.map(subjectKey => 
+        subjectKey[0].toUpperCase() + 
+        subjectKey.slice(1).toLowerCase().replaceAll('_', ' '));
+}
+
+console.log('Subjects of student Tanya:', getSubjects(students[0]));
+console.log('Subjects of student Victor:', getSubjects(students[1]));
+console.log('Subjects of student Anton:', getSubjects(students[2]));
+
+function getAverageMark(studentsArray) {
+    const splitedMarks = Object.values(studentsArray.subjects);
+    const concatedMarks = splitedMarks.flat();
+    const initialValue = 0;
+
+    const result = concatedMarks.reduce((previousSubjectValue, currentSubjectValue) =>
+        (previousSubjectValue + currentSubjectValue), initialValue
+        );
+
+    return Number((result / concatedMarks.length).toFixed(2));
+    }
+
+console.log('Average mark of student Tanya: ', getAverageMark(students[0]));
+console.log('Average mark of student Victor: ', getAverageMark(students[1]));
+console.log('Average mark of student Anton: ', getAverageMark(students[2]));
