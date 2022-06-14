@@ -1,0 +1,23 @@
+html {
+    font-size: 62.5%;
+}
+
+body {
+    background-color: rgb(255, 233, 233);
+    font-size: 2rem;
+    text-align: center;
+}
+
+.main {
+    color: coral;
+}
+
+.second {
+    color: rgb(118, 131, 4);
+}
+
+.third {
+    color: dodgerblue;
+    cursor: pointer;
+    text-decoration: underline;
+}
