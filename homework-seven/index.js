@@ -24,7 +24,33 @@ const ukraineMiddleTax = getMiddleTaxes.call(ukraine);
 const latviaMiddleTax = getMiddleTaxes.call(latvia);
 const litvaMiddleTax = getMiddleTaxes.call(litva);
 
-console.log(ukraineMiddleTax);
-console.log(latviaMiddleTax);
-console.log(litvaMiddleTax);
+console.log('Middle tax in Ukraine: ', ukraineMiddleTax);
+console.log('Middle tax in Latvia: ', latviaMiddleTax);
+console.log('Middle tax in Litva: ', litvaMiddleTax);
 
+// Function #3 that gets total taxes
+function getTotalTaxes() {
+    return Number(Math.round(this.tax * this.middleSalary * this.vacancies));
+}
+
+const totalTaxesUkraine = getTotalTaxes.call(ukraine);
+const totalTaxesLatvia = getTotalTaxes.call(latvia);
+const totalTaxesLitva = getTotalTaxes.call(litva);
+
+console.log('Total taxes in Ukraine: ', totalTaxesUkraine);
+console.log('Total taxes in Latvia: ', totalTaxesLatvia);
+console.log('Total taxes in Litva: ', totalTaxesLitva);
+
+function getMySalary() {
+    setInterval(() => {
+        const resultObj = {};
+
+        resultObj.salary = Math.floor(Math.random() * (2000 - 1500 + 1) + 1500);
+        resultObj.taxes = getMyTaxes.call(this, resultObj.salary);
+        resultObj.profit = resultObj.salary - resultObj.taxes;
+
+        console.log(resultObj);
+    }, 10000)
+}
+
+getMySalary.call(ukraine);
