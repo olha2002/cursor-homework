@@ -1,3 +1,6 @@
 const studentInfo = new Student('Lviv Polytechnic', 'third', 'Olha Orach');
 console.log( studentInfo.getInfo() );
-console.log( studentInfo.marks );
+
+const studentMarks = new Student('Ivan Franko University', 'first', 'Pavlo Smith');
+studentMarks.marks = 5;
+console.log(studentMarks.marks);

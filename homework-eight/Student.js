@@ -4,7 +4,7 @@ class Student {
         this._university = university;
         this._course = course;
         this._fullName = fullName;
-        this._marks = [];
+        this._marksArray = [5, 4, 4, 5]
     }
 
     getInfo() {
@@ -12,11 +12,11 @@ class Student {
     }
 
     get marks()  {
-        return this._marks;
+        return this._marksArray;
     }
 
     set marks(mark) {
-        this._marks.push(mark);
+        this._marksArray.push(mark);
     }
 
 }
