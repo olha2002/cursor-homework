@@ -20,3 +20,5 @@ console.log('Average mark: ', student.getAverageMark() );
 
 const studentTwo = new BudgetStudent('Lviv Polytechnic', 'third', 'Olha Orach', 1400);
 
+studentTwo.dismiss();
+studentTwo.recover();

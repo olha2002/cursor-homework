@@ -8,7 +8,10 @@ class BudgetStudent extends Student {
 
     getScholarship() {
         setInterval(() => {
-            console.log( `You've got ${this._scholarship} of your scholarsip!` );
+            if (this._student && this.getAverageMark() >= 4) {
+                console.log( `You've got ${this._scholarship} of your scholarsip!` );
+            } 
         }, '30000');
-    } 
+    }
+    
 }
