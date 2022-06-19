@@ -1,0 +1,27 @@
+html {
+    font-size: 62.5%;
+}
+
+body {
+    background-color: floralwhite;
+    font-size: 2rem;
+    text-align: center;
+}
+
+.main {
+    color: coral
+}
+
+.second {
+    color: midnightblue;
+}
+
+.third {
+    color: rgb(141, 134, 95);
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.third:hover {
+    color: coral;
+}
