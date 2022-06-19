@@ -1,0 +1,3 @@
+class BudgetStudent extends Student {
+    
+}
