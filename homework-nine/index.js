@@ -27,6 +27,8 @@ callButton.addEventListener('click', function() {
 });
 
 const mixButton = document.querySelector('.mix-button');
-mixButton.addEventListener('click', function() {
-    rectangles.forEach(el => el.style.backgroundColor = getRandomBackgroundColor());
+mixButton.addEventListener('click', function() { 
+    setInterval(() => {
+        rectangles.forEach(el => el.style.backgroundColor = getRandomBackgroundColor());
+    }, '1000');
 });
