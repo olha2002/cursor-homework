@@ -20,7 +20,7 @@ console.log( `My Random Array: ${randomArray}` );
 
 // Function 2. Gets the array moda.
 const getModa = (...numbers) => {
-    const filteredModaArray = numbers.filter(value => Number(value) && parseInt(value) === value);
+    const filteredModaArray = numbers.filter(value => typeof value === 'number' && parseInt(value) === value);
     const occurencesObj = {};
     filteredModaArray.forEach(element => {
         if (!occurencesObj[element]) occurencesObj[element] = 0;
@@ -46,19 +46,19 @@ const getModa = (...numbers) => {
     return resultArr.join(',');
 }
 
-const modaValues = getModa(3, 3, 2, 2, 5);
+const modaValues = getModa(4.5, 4.5, 0, 0, 3, 3, 2, 2, 5);
 console.log( `Moda values: ${modaValues}` );
 
 // Function 3. Gets the average value
 function getAverage(...numbers) {
-   const filteredAverageArr = numbers.filter(value => Number(value) && parseInt(value) === value);
+   const filteredAverageArr = numbers.filter(value => typeof value === 'number' && parseInt(value) === value);
    const sumOfArrayElements = filteredAverageArr.reduce((previousValue, currentValue) =>
     previousValue + currentValue
     );
 
    return Number(sumOfArrayElements / filteredAverageArr.length);
 } 
-const averageArray = getAverage(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2);
+const averageArray = getAverage(6, 2, 0, 6.5, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2);
 console.log( `My getAverage num: ${averageArray}` );
 
 // Function 4. Gets numbers median
@@ -82,17 +82,17 @@ const median = getMedian(1, 2, 3, 4, 5, 6, 8, 8.6, 'j');
 console.log( `My Median: ${median}` );
 // Function 5. Filters even numbers
 const filterEvenNumbers = (...numbers) => {
-    return numbers.filter(value => Number(value) && value % 2 !== 0);
+    return numbers.filter(value => typeof value === 'number' && value % 2 !== 0);
 }
-const filterEvenNumbersArray = filterEvenNumbers(1, 2, 3, 'g', 4, 5, 6, 8, 8, 9);
+const filterEvenNumbersArray = filterEvenNumbers(1, 2, 3, true, 4, 5, true, false, 8, 9);
 console.log( `Filtered with EvenNumbers Array: ${filterEvenNumbersArray}` );
 
 // Function 6. Counts positive numbers
 const countPositiveNumbers = (...numbers) => {
-   const positiveNumbersArray = numbers.filter(value => Number(value) && value > 0);
+   const positiveNumbersArray = numbers.filter(value => typeof value === 'number' && value > 0);
    return positiveNumbersArray.length;
 }
-const countPositiveNumbersArr = countPositiveNumbers(1, -2,  3, -4, -5,  6, -1);
+const countPositiveNumbersArr = countPositiveNumbers(false, -2,  true, -4, -5,  6, -1);
 console.log( `Positives numbers: ${countPositiveNumbersArr}` );
 
 // Function 7. Gets divided by 5 numbers
@@ -108,29 +108,7 @@ function replaceBadWords(string, addYoursBadWord) {
         return 'Please enter the phrase!';
     }
 
-    /*if (addYoursBadWord !== '') {
-        BAD_WORDS.push(addYoursBadWord);
-    }
-
-    const splitedWords = string.toLowerCase().split(' ');
-    const result = splitedWords.map(phrase => {
-        for (let badWord of BAD_WORDS) {
-            if (phrase.includes(badWord)) {
-                return phrase.replaceAll(badWord, new Array(badWord.length).fill('*').join(''));
-            }
-        }
-    });
-    
-    return result.join(' ');
-    */
-
-    const badWords = /(shit)|(Fuck)|(bitch)/gi; 
-    const replacedString = string.replaceAll(badWords, function(argument) {
-        return argument.replaceAll(/./g, '*');
-    });
-
-    return replacedString;
-
+    //...
 }
 
 const replacedBadWords = replaceBadWords('ShitfuckFuckFuckingbitch');
@@ -158,16 +136,7 @@ const generateCombinations = (word) => {
         return 'Please enter string!';
     } 
 
-     for (let index = 0; index < wordArray.length; index++) {
-        if (wordArray.length === 2) {
-            combinationsArr.push([wordArray[index], wordArray[(index + 1) % 2]].join(''));
-      } else {
-        const firstLetter = wordArray.splice(0, 1);
-        const resultArray = generateCombinations(wordArray.join(''));
-        resultArray.forEach(char => combinationsArr.push(char + firstLetter));
-        wordArray = [...wordArray, ...firstLetter];
-    }
-}
+     //...
     return combinationsArr;
 };
 
