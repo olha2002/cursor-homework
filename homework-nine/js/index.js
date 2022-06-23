@@ -2,9 +2,9 @@ const rectangles = document.querySelectorAll(".rectangle");
 const rectanglesGroup = document.querySelector(".rectangles-group");
 
 function getRandomBackgroundColor() {
-    const RED_COLOR = Math.floor(Math.random() * (255 - 0) + 0);
-    const GREEN_COLOR = Math.floor(Math.random() * (255 - 0) + 0);
-    const BLUE_COLOR = Math.floor(Math.random() * (255 - 0) + 0);
+    const RED_COLOR = Math.floor(Math.random() * 256);
+    const GREEN_COLOR = Math.floor(Math.random() * 256);
+    const BLUE_COLOR = Math.floor(Math.random() * 256);
     const bgColor = "rgb(" + RED_COLOR + "," + GREEN_COLOR + "," + BLUE_COLOR + ")";
 
     return bgColor;
