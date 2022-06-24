@@ -1,0 +1,33 @@
+html {
+    font-size: 62.5%;
+}
+
+body {
+    background-image: url(../img/pexels-gabriela-palai-395196\ \(1\).jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    text-align: center;
+}
+
+.keyboard {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.key {
+    border-radius: 1rem;
+    box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+    cursor: pointer;
+    font-size: 4rem;
+    margin-left: 2rem;
+    margin-top: 20rem;
+    padding: 2.5rem 3rem;
+}
+
+.key:hover,
+.key:active {
+    color: black;
+    border: 5px solid white;
+}
