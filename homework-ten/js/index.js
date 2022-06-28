@@ -24,6 +24,7 @@ const stopSound = (item) => {
   if (!audio) return;
   setTimeout(() => {
     audio.pause();
+    audio.currentTime = 0;
   }, 2000);
 };
 
