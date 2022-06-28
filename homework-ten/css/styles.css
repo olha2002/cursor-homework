@@ -8,6 +8,7 @@ body {
     background-size: cover;
     background-attachment: fixed;
     text-align: center;
+    font-family: 'Ubuntu', Arial, Helvetica, sans-serif;
 }
 
 .keyboard {
@@ -19,15 +20,21 @@ body {
 .key {
     border-radius: 1rem;
     box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+    color: dodgerblue;
     cursor: pointer;
-    font-size: 4rem;
+    font-size: 3.5rem;
     margin-left: 2rem;
     margin-top: 20rem;
-    padding: 2.5rem 3rem;
+    padding: 2rem 3rem;
 }
 
-.key:hover,
-.key:active {
-    color: black;
-    border: 5px solid white;
+.name {
+    font-family: 'Inconsolata', monospace;
+    font-size: 2rem;
+    color: white;
 }
+
+.active {
+    border: 5px solid #fff;
+}
+
