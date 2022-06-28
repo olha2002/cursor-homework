@@ -1,3 +1,6 @@
+const MIN_VALUE = 1500;
+const MAX_VALUE = 2000;
+
 const ukraine = { tax: 0.195, middleSalary: 1789, vacancies: 11476 };
 const latvia = { tax: 0.25, middleSalary: 1586, vacancies: 3921 };
 const litva = { tax: 0.15, middleSalary: 1509, vacancies: 1114 };
@@ -45,7 +48,9 @@ function getMySalary() {
   setInterval(() => {
     const resultObj = {};
 
-    resultObj.salary = Math.floor(Math.random() * (2000 - 1500 + 1) + 1500);
+    resultObj.salary = Math.floor(
+      Math.random() * (MAX_VALUE - MIN_VALUE + 1) + MIN_VALUE
+    );
     resultObj.taxes = getMyTaxes.call(this, resultObj.salary);
     resultObj.profit = resultObj.salary - resultObj.taxes;
 
