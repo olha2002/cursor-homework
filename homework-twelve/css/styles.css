@@ -1,0 +1,45 @@
+html {
+    font-size: 62.5%;
+}
+
+body {
+    background-image: url(../img/bg-img.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;
+    font-size: 2rem;
+    font-family: 'Coustard', serif;
+}
+
+.header {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 4rem;
+    color: gold;
+}
+
+.main {
+    color: gold;
+    font-size: 3rem;
+}
+
+.button {
+    border: none;
+    cursor: pointer;
+    outline: 0;
+    padding: 1.5rem 2.5rem;
+    font-size: 2rem;
+    filter: drop-shadow(0 0 15px #000) drop-shadow(0 0 50px #000) contrast(2) brightness(2); 
+}
+
+.btn-info {
+    background-color: brown;
+    color: #000;
+}
+
+.btn-info:hover {
+    background-color: #000;
+    color: #ffd700;
+    filter: drop-shadow(0 0 20px #ffd700) contrast(4) brightness(4);
+    transition: .3s;
+    transform: translateY(5px);
+}
