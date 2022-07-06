@@ -6,6 +6,7 @@ body {
     background-image: url(../img/bg-img.jpg);
     background-repeat: no-repeat;
     background-size: cover;
+    background-attachment: fixed;
     text-align: center;
     font-size: 2rem;
     font-family: 'Coustard', serif;
@@ -25,6 +26,7 @@ body {
 .button {
     border: none;
     cursor: pointer;
+    letter-spacing: 2px;
     outline: 0;
     padding: 1.5rem 2.5rem;
     font-size: 2rem;
@@ -32,14 +34,65 @@ body {
 }
 
 .btn-info {
-    background-color: brown;
-    color: #000;
+    background-color: #a52a2a;
+    color: #fff;
+    -webkit-transition: all .15s ease-in-out;
+  transition: all .15s ease-in-out;
 }
 
 .btn-info:hover {
-    background-color: #000;
     color: #ffd700;
-    filter: drop-shadow(0 0 20px #ffd700) contrast(4) brightness(4);
+    animation: pulse 1s infinite;
     transition: .3s;
-    transform: translateY(5px);
 }
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(3, 350px);
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 5rem;
+}
+
+.character {
+    border: 2px solid gold;
+    color: white;
+}
+
+.character:hover {
+    background-color: #1c180f;
+    transform: scale(1.2);
+}
+
+.character-img {
+    width: 200px;
+    height: 200px;
+    margin: 1rem 0;
+}
+
+#character-birthday {
+    color: #a52a2a;
+    font-size: 1.6rem;
+}
+
+#character-gender {
+    margin-bottom: 1rem;
+}
+
+.character span {
+    display: inline-block;
+    width: 100%;
+}
+
+@keyframes pulse {
+    0% {
+      transform: scale(1);
+    }
+    70% {
+      transform: scale(.9);
+    }
+      100% {
+      transform: scale(1);
+    }
+  }
