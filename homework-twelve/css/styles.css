@@ -13,9 +13,9 @@ body {
 }
 
 .header {
-    font-family: 'Press Start 2P', cursive;
+    font-family: 'Audiowide', cursive;
     font-size: 4rem;
-    color: gold;
+    color: #ffd700;
 }
 
 .main {
@@ -31,58 +31,131 @@ body {
     padding: 1.5rem 2.5rem;
     font-size: 2rem;
     filter: drop-shadow(0 0 15px #000) drop-shadow(0 0 50px #000) contrast(2) brightness(2); 
-}
-
-.btn-info {
-    background-color: #a52a2a;
-    color: #fff;
     -webkit-transition: all .15s ease-in-out;
-  transition: all .15s ease-in-out;
+    transition: all .15s ease-in-out;
 }
 
-.btn-info:hover {
-    color: #ffd700;
+.button:hover {
     animation: pulse 1s infinite;
     transition: .3s;
 }
 
+.btn-info,
+.btn-planets {
+    background-color: #a52a2a;
+    color: #fff;
+}
+
+
+.btn-info:hover,
+.btn-planets:hover {
+    color: #ffd700;
+}
+
+.btn-planets {
+    margin-top: 4rem;
+}
+
+.btn-previous {
+    margin-right: 2rem;
+}
+
+.btn-previous,
+.btn-next{
+    background-color: #000;
+    color: #ffd700;
+    margin: 3rem 0 3rem 1rem;
+}
+
+.btn-previous:hover,
+.btn-next:hover{
+    color: #a52a2a;
+}
 .container {
     display: grid;
     grid-template-columns: repeat(3, 350px);
-    align-items: center;
     justify-content: center;
-    gap: 2rem;
+    gap: 3rem;
     margin-top: 5rem;
 }
 
-.character {
-    border: 2px solid gold;
-    color: white;
+.planets-container {
+    display: flex;
 }
 
-.character:hover {
-    background-color: #1c180f;
-    transform: scale(1.2);
+.character {
+    border: 2px solid #ffd700;
+    width: 300px;
+    height: 300px;
+    perspective: 1000px;
+    margin: 0 auto;
+    box-shadow: 0 0 .1rem #fff,
+              0 0 .1rem #fff,
+              0 0 1rem #ffd700,
+              0 0 0.8rem #ffd700,
+              0 0 1rem #ffd700,
+              inset 0 0 1rem #ffd700;
 }
+
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+  }
+  
+  .flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+  }
+  
+  .flip-card-front, .flip-card-back {
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    background-color: transparent;
+    color: white;
+    height: 100%;
+    position: absolute;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .flip-card-back {
+    transform: rotateY(180deg);
+  }
 
 .character-img {
     width: 200px;
     height: 200px;
-    margin: 1rem 0;
+    margin-bottom: 2rem;
 }
 
 #character-birthday {
     color: #a52a2a;
-    font-size: 1.6rem;
-}
-
-#character-gender {
-    margin-bottom: 1rem;
+    margin: 1rem 0;
 }
 
 .character span {
     display: inline-block;
     width: 100%;
+}
+
+.planets-img {
+    width: 220px;
+    height: 220px;
+    margin-bottom: 2rem;
+}
+
+#planet-films {
+    color: #a52a2a;
+}
+
+#planet-terrain {
+    color: #a52a2a;
 }
 
 @keyframes pulse {
