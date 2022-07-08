@@ -1,7 +1,7 @@
 // selectors
 const FONT_SIZE = 14;
-const task1 = document.querySelector(".task-1");
-const task2 = document.querySelector(".task-2");
+const idTask = document.querySelector(".task-1");
+const fontTask = document.querySelector(".task-2");
 const documentBody = document.querySelector("body");
 
 //variables
@@ -9,7 +9,7 @@ const idButton = document.createElement("button");
 idButton.className = "id id-btn";
 idButton.innerHTML = "Generate Me";
 
-task1.after(idButton);
+idTask.after(idButton);
 
 const idResult = document.createElement("span");
 idResult.id = "result";
@@ -20,7 +20,7 @@ const makeLessButton = document.createElement("button");
 makeLessButton.className = "id less-btn";
 makeLessButton.innerHTML = "Make less";
 
-task2.after(makeLessButton);
+fontTask.after(makeLessButton);
 
 const makeBiggerButton = document.createElement("button");
 makeBiggerButton.className = "id big-btn";
