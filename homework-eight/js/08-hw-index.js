@@ -1,4 +1,10 @@
 const student = new Student("Lviv Polytechnic", "third", "Olha Orach");
+const studentTwo = new BudgetStudent(
+  "Lviv Polytechnic",
+  "third",
+  "Olha Orach",
+  1400
+);
 
 student.marks = 5;
 console.log("Student info: ", student.getInfo());
@@ -17,13 +23,6 @@ student.recover();
 console.log("Student Marks: ", student.marks);
 console.log("Student info: ", student.getInfo());
 console.log("Average mark: ", student.getAverageMark());
-
-const studentTwo = new BudgetStudent(
-  "Lviv Polytechnic",
-  "third",
-  "Olha Orach",
-  1400
-);
 
 studentTwo.dismiss();
 studentTwo.recover();
