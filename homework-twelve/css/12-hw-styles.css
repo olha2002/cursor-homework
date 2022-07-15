@@ -70,6 +70,7 @@ body {
 .btn-next:hover{
     color: #a52a2a;
 }
+
 .container {
     display: grid;
     grid-template-columns: repeat(3, 350px);
@@ -149,10 +150,7 @@ body {
     margin-bottom: 2rem;
 }
 
-#planet-films {
-    color: #a52a2a;
-}
-
+#planet-films,
 #planet-terrain {
     color: #a52a2a;
 }
