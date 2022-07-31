@@ -1,5 +1,5 @@
 // selectors
-const FONT_SIZE = 14;
+const FONT_SIZE = 20;
 const idTask = document.querySelector(".task-1");
 const fontTask = document.querySelector(".task-2");
 const documentBody = document.querySelector("body");
