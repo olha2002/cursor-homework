@@ -1,7 +1,7 @@
 const MILI_SECONDS = 50;
 
 async function getRandomChinese(length) {
-  if (!Number.isInteger(length) || length < 0) {
+  if (!Number.isInteger(length) || length <= 0) {
     throw new Error("Argument should be integer and higher than 0!");
   }
 
@@ -16,6 +16,6 @@ async function getRandomChinese(length) {
   return symbols.join("");
 }
 
-getRandomChinese(4)
+getRandomChinese(1)
   .then((result) => alert(result))
   .catch((error) => alert(error));
