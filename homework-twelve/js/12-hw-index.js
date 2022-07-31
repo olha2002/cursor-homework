@@ -1,7 +1,7 @@
 //selectors
 const infoButton = document.querySelector(".btn-info");
 const planetsButton = document.querySelector(".btn-planets");
-const previoutButton = document.querySelector(".btn-previous");
+const previousButton = document.querySelector(".btn-previous");
 const nextButton = document.querySelector(".btn-next");
 
 //variables
@@ -31,7 +31,7 @@ async function getInfo() {
         <div class="flip-card-front">
             <img src="./img/characters/${hero.name
               .split(" ")
-              .join("")}.jpg" class="character-img" alt="Picture no found!">
+              .join("")}.jpg" class="character-img" alt="Star Wars Character">
             <span id="character-name">${hero.name}</span>
         </div>
         <div class="flip-card-back">
@@ -55,7 +55,7 @@ async function getPlanets(elementIndex) {
     `<div class="character flip-card planets-container">
         <div class="flip-card-inner">
         <div class="flip-card-front">
-        <img src="./img/planets/${planetsResponse[elementIndex].name}.jpg" class="planets-img" alt="Picture no found!">
+        <img src="./img/planets/${planetsResponse[elementIndex].name}.jpg" class="planets-img" alt="Star Wars planet">
             <span id="planet-name">${planetsResponse[elementIndex].name}</span>
       </div>
         <div class="flip-card-back">
@@ -74,8 +74,10 @@ async function getPlanets(elementIndex) {
 infoButton.addEventListener("click", getInfo);
 planetsButton.addEventListener("click", () => {
   getPlanets(elementIndex);
+  previousButton.hidden = false;
+  nextButton.hidden = false;
 });
-previoutButton.addEventListener("click", () => {
+previousButton.addEventListener("click", () => {
   elementIndex > 0 ? elementIndex-- : (elementIndex = 9);
   getPlanets(elementIndex);
 });

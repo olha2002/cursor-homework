@@ -81,6 +81,7 @@ body {
 
 .planets-container {
     display: flex;
+    height: 304px;
 }
 
 .character {
