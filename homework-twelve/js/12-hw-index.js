@@ -32,11 +32,11 @@ async function getInfo() {
             <img src="./img/characters/${hero.name
               .split(" ")
               .join("")}.jpg" class="character-img" alt="Star Wars Character">
-            <span id="character-name">${hero.name}</span>
+            <span class="character-name">${hero.name}</span>
         </div>
         <div class="flip-card-back">
-            <span id="character-birthday">Birth year: ${hero.birth_year}</span>
-            <span id="character-gender">Gender: ${hero.gender}</span>
+            <span class="character-birthday">Birth year: ${hero.birth_year}</span>
+            <span class="character-gender">Gender: ${hero.gender}</span>
         </div>
         </div>
         </div>`
@@ -56,13 +56,13 @@ async function getPlanets(elementIndex) {
         <div class="flip-card-inner">
         <div class="flip-card-front">
         <img src="./img/planets/${planetsResponse[elementIndex].name}.jpg" class="planets-img" alt="Star Wars planet">
-            <span id="planet-name">${planetsResponse[elementIndex].name}</span>
+            <span class="planet-name">${planetsResponse[elementIndex].name}</span>
       </div>
         <div class="flip-card-back">
-          <span id="planet-diameter">Diameter: ${planetsResponse[elementIndex].diameter}</span>
-          <span id="planet-films">Population: ${planetsResponse[elementIndex].population}</span>
-          <span id="planet-climate">Climate: ${planetsResponse[elementIndex].climate}</span>
-          <span id="planet-terrain">Terrain: ${planetsResponse[elementIndex].terrain}</span>
+          <span class="planet-diameter">Diameter: ${planetsResponse[elementIndex].diameter}</span>
+          <span class="planet-films">Population: ${planetsResponse[elementIndex].population}</span>
+          <span class="planet-climate">Climate: ${planetsResponse[elementIndex].climate}</span>
+          <span class="planet-terrain">Terrain: ${planetsResponse[elementIndex].terrain}</span>
       </div>
       </div>
       </div>

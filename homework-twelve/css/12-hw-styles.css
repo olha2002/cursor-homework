@@ -135,7 +135,7 @@ body {
     margin-bottom: 2rem;
 }
 
-#character-birthday {
+.character-birthday {
     color: #a52a2a;
     margin: 1rem 0;
 }
@@ -151,8 +151,8 @@ body {
     margin-bottom: 2rem;
 }
 
-#planet-films,
-#planet-terrain {
+.planet-films,
+.planet-terrain {
     color: #a52a2a;
 }
 
